@@ -4,6 +4,9 @@
   "html.hover.references": false,
   "html.hover.documentation": false,
   "editor.glyphMargin": false,
+  "eslint.workingDirectories": [
+    "./",
+  ]
   // Use 3 when recording demos
   //"window.zoomLevel": 3,
 }

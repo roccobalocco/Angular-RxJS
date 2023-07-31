@@ -8,6 +8,7 @@ bower_components
 **/*.log/*.*
 **/*.log
 
+./.vscode
 .vs
 **/*.sou
 **/*.user
