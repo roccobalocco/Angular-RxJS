@@ -1,63 +1,36 @@
 {
-  "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
-  "overrides": [
-    {
-      "files": [
-        "*.ts"
-      ],
-      "parserOptions": {
-        "project": [
-          "./tsconfig.json"
-        ],
-        "createDefaultProgram": true
-      },
-      "plugins": ["rxjs", "rxjs-angular"],
-      "extends": [
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:rxjs/recommended"
-      ],
-      "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "pm",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "pm",
-            "style": "kebab-case"
-          }
-        ],
-        "rxjs/no-implicit-any-catch": [
-          "off",
-          { "allowExplicitAny": true }
-        ],
-        "rxjs/no-sharereplay": [
-          "off",
-          { "allowConfig": true }
-        ],
-        "rxjs/no-unbound-methods": [
-          "off"
-        ]
-      }
+    "env": {
+        "browser": true,
+        "es2021": true
     },
-    {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
-      "rules": {}
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ]
     }
-  ]
 }

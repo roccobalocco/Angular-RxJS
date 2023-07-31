@@ -4,7 +4,7 @@
       <nz-option nzLabel="-Display All-" nzValue="0"></nz-option>
       <nz-option *ngFor="let category of categories" nzLabel="{{ category.name }}" nzValue="category.id"></nz-option>
     </nz-select>
-    <nz-table #basicTable *ngIf="products" [nzData]="products">
+    <nz-table #basicTable *ngIf="products$ | async as products" [nzData]="products">
       <thead>
         <tr>
           <th>Product</th>
@@ -24,7 +24,7 @@
         </tr>
       </tbody>
     </nz-table>
-    <button type="button" nz-button nzType="default" 
+    <button type="button" nz-button nzType="default"
             (click)="onAdd()">Add Product</button>
   </nz-card>
 

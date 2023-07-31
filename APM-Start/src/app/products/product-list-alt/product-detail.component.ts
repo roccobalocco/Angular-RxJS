@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
-import { Supplier } from '../../suppliers/supplier';
-import { Product } from '../product';
+import { Component } from "@angular/core"
+import { Supplier } from "../../suppliers/supplier"
+import { Product } from "../product"
 
-import { ProductService } from '../product.service';
+import { ProductService } from "../product.service"
 
 @Component({
-  selector: 'pm-product-detail',
-  templateUrl: './product-detail.component.html'
+	selector: "pm-product-detail",
+	templateUrl: "./product-detail.component.html"
 })
 export class ProductDetailComponent {
-  pageTitle = 'Product Detail';
-  errorMessage = '';
-  product: Product | null = null;
-  productSuppliers: Supplier[] | null = null;
+	pageTitle = "Product Detail"
+	errorMessage = ""
+	product: Product | null = null
+	productSuppliers: Supplier[] | null = null
 
-  constructor(private productService: ProductService) { }
+	constructor(private productService: ProductService) { }
 
 }

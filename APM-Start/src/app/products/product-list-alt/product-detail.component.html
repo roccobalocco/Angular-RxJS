@@ -1,6 +1,6 @@
 <nz-space nzDirection="vertical" [nzAlign]="'center'">
   <nz-card *nzSpaceItem nzTitle="{{ pageTitle }}">
-
+    <nz-empty *ngIf="!product" nzNotFoundImage="simple"></nz-empty>
     <nz-table #productTable *ngIf="product" [nzData]="[product]">
       <thead>
         <tr>
@@ -21,8 +21,8 @@
         <td>{{ data.price | currency: "USD":"symbol" }}</td>
         <td>{{ data.quantityInStock }}</td>
         </tr>
-      </tbody>  
-    </nz-table> 
+      </tbody>
+    </nz-table>
     <nz-table #supplierTable *ngIf="productSuppliers" [nzData]="productSuppliers">
       <thead>
         <tr>
