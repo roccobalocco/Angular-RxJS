@@ -1,8 +1,44 @@
-.nav-link {
-  font-size: large;
-  cursor: pointer;
+.layout {
+  min-height: 100vh;
 }
 
-.navbar-light .navbar-nav .nav-link.active {
-  color: #007ACC
+[nz-menu-item] a {
+  text-decoration: none;
+}
+
+nz-header{
+  background: none;
+}
+
+[nz-menu] {
+  line-height: 64px;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+nz-content {
+  padding: 0 50px;
+  margin: 20px 0px;
+}
+
+nz-footer {
+  text-align: center;
+}
+
+.inner-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }

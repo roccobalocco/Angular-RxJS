@@ -9,6 +9,15 @@ import { ProductDetailComponent } from './product-list-alt/product-detail.compon
 import { SharedModule } from '../shared/shared.module';
 import { ProductListAltComponent } from './product-list-alt/product-list-alt.component';
 
+import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzListModule} from 'ng-zorro-antd/list';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+
 @NgModule({
   imports: [
     SharedModule,
@@ -22,7 +31,15 @@ import { ProductListAltComponent } from './product-list-alt/product-list-alt.com
         path: 'alternate',
         component: ProductShellComponent
       }
-    ])
+    ]),
+    NzSpaceModule,
+    NzCardModule,
+    NzTableModule,
+    NzButtonModule,
+    NzSelectModule,
+    NzGridModule,
+    NzListModule,
+    NzTypographyModule
   ],
   declarations: [
     ProductListComponent,

@@ -1,23 +1,18 @@
-<div class="card">
-  <div class="card-header">
-    {{ pageTitle }}
-  </div>
+<nz-space nzDirection="vertical" [nzAlign]="'center'">
+  <nz-card nzTitle="{{ pageTitle }}" *ngIf="products">
+    <nz-list nzBordered nzHeader="Name (Category ID)">
+      <nz-list-item *ngFor="let product of products">
+      <a (click)="onSelected(product.id)">
+        <span nz-typography>
+          {{ product.productName }}
+        </span>
+        {{ product.categoryId }}
+      </a>
+      </nz-list-item>
+    </nz-list>
+  </nz-card>
+</nz-space>
 
-  <div class="card-body"
-       *ngIf="products">
-    <div class="list-group">
-      <button type="button"
-              class="list-group-item"
-              *ngFor="let product of products"
-              [ngClass]="{ active: product?.id === selectedProductId }"
-              (click)="onSelected(product.id)">
-        {{ product.productName }} ({{ product.categoryId }})
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="alert alert-danger"
-     *ngIf="errorMessage">
+<div class="alert alert-danger" *ngIf="errorMessage">
   {{ errorMessage }}
 </div>

@@ -1,62 +1,51 @@
-<div class="card"
-     *ngIf="product">
-  <div class="card-header">
-    {{ pageTitle }}
-  </div>
+<nz-space nzDirection="vertical" [nzAlign]="'center'">
+  <nz-card *nzSpaceItem nzTitle="{{ pageTitle }}">
 
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-2">Name:</div>
-      <div class="col-md-6">{{ product.productName }}</div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">Code:</div>
-      <div class="col-md-6">{{ product.productCode }}</div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">Category:</div>
-      <div class="col-md-6">{{ product.categoryId }}</div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">Description:</div>
-      <div class="col-md-6">{{ product.description }}</div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">Price:</div>
-      <div class="col-md-6">{{ product.price | currency: "USD":"symbol" }}</div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">In Stock:</div>
-      <div class="col-md-6">{{ product.quantityInStock }}</div>
-    </div>
-
-    <div class="table-responsive"
-          *ngIf="productSuppliers">
-      <table class="table mb-0"
-             *ngIf="productSuppliers.length; else noSuppliers">
-        <thead>
-          <tr>
-            <th>Supplier</th>
-            <th>Cost</th>
-            <th>Minimum Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let supplier of productSuppliers">
-            <td>{{ supplier.name }}</td>
-            <td>{{ supplier.cost | currency: "USD":"symbol":"1.2-2" }}</td>
-            <td>{{ supplier.minQuantity }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <ng-template #noSuppliers>
-    <div class="alert alert-warning">
-      No suppliers for product
-    </div>
-  </ng-template>
-</div>
+    <nz-table #productTable *ngIf="product" [nzData]="[product]">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>In Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of productTable.data">
+        <td>{{ data.productName }}</td>
+        <td>{{ data.productCode }}</td>
+        <td>{{ data.categoryId }}</td>
+        <td>{{ data.description }}</td>
+        <td>{{ data.price | currency: "USD":"symbol" }}</td>
+        <td>{{ data.quantityInStock }}</td>
+        </tr>
+      </tbody>  
+    </nz-table> 
+    <nz-table #supplierTable *ngIf="productSuppliers" [nzData]="productSuppliers">
+      <thead>
+        <tr>
+          <th>Supplier</th>
+          <th>Cost</th>
+          <th>Minimum Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of supplierTable.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.cost | currency: "USD":"symbol":"1.2-2" }}</td>
+          <td>{{ data.minQuantity }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <ng-template *ngIf="!productSuppliers">
+      <div class="alert alert-warning">
+        No suppliers for product
+      </div>
+    </ng-template>
+  </nz-card>
+</nz-space>
 
 <div class="alert alert-danger"
      *ngIf="errorMessage">

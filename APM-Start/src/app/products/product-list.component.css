@@ -1,3 +1,12 @@
 thead {
   color: #337AB7;
 }
+
+nz-card {
+  margin: 0 auto;
+  display: flex;
+}
+
+nz-table {
+  margin: 0 auto;
+}
